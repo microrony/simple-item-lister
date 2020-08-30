@@ -15,23 +15,23 @@ let addItem = (e) => {
 
   li.appendChild(deleteBtn);
   itemList.appendChild(li);
-}
+};
 
 let removeItem = (e) => {
   if (e.target.classList.contains('delete')) {
-    if (confirm('Are You Sure?')) {
+    if (confirm('Are You Sure!')) {
       let li = e.target.parentElement;
       itemList.removeChild(li);
     }
   }
-}
+};
 
 let filterItems = (e) => {
   let text = e.target.value.toLowerCase();
   let items = itemList.getElementsByTagName('li');
   Array.from(items).forEach(item => {
     let itemName = item.firstChild.textContent;
-    if(itemName.toLowerCase().indexOf(text) != -1) {
+    if (itemName.toLowerCase().indexOf(text) != -1) {
       item.style.display = 'block';
     } else {
       item.style.display = 'none';
