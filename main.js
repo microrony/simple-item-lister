@@ -1,5 +1,6 @@
 let form = document.getElementById('addForm');
 let itemList = document.getElementById('items');
+let filter = document.getElementById('filter');
 
 let addItem = (e) => {
   e.preventDefault();
@@ -25,6 +26,19 @@ let removeItem = (e) => {
   }
 }
 
+let filterItems = (e) => {
+  let text = e.target.value.toLowerCase();
+  let items = itemList.getElementsByTagName('li');
+  Array.from(items).forEach(item => {
+    let itemName = item.firstChild.textContent;
+    if(itemName.toLowerCase().indexOf(text) != -1) {
+      item.style.display = 'block';
+    } else {
+      item.style.display = 'none';
+    }
+  });
+};
 
 form.addEventListener('submit', addItem);
 itemList.addEventListener('click', removeItem);
+filter.addEventListener('keyup', filterItems);
