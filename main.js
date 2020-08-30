@@ -16,6 +16,15 @@ let addItem = (e) => {
   itemList.appendChild(li);
 }
 
+let removeItem = (e) => {
+  if (e.target.classList.contains('delete')) {
+    if (confirm('Are You Sure?')) {
+      let li = e.target.parentElement;
+      itemList.removeChild(li);
+    }
+  }
+}
 
 
 form.addEventListener('submit', addItem);
+itemList.addEventListener('click', removeItem);
