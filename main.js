@@ -29,7 +29,7 @@ let removeItem = (e) => {
 let filterItems = (e) => {
   let text = e.target.value.toLowerCase();
   let items = itemList.getElementsByTagName('li');
-  Array.from(items).forEach(item => {
+  Array.from(items).forEach((item) => {
     let itemName = item.firstChild.textContent;
     if (itemName.toLowerCase().indexOf(text) != -1) {
       item.style.display = 'block';
